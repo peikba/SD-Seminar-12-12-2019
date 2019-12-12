@@ -32,7 +32,7 @@
       "to": 50149
     }
   ],
-  "contextSensitiveHelpUrl": "https://SDSeminar.com/help/",
+  "contextSensitiveHelpUrl": "http://localhost/SD_Seminar/",
   "showMyCode": true,
   "target": "OnPrem",
   "runtime": "4.0"
