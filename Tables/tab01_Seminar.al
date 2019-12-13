@@ -10,6 +10,7 @@ table 50101 "CSD Seminar"
         {
             Caption = 'No.';
             DataClassification = AccountData;
+            
 
             trigger OnValidate();
             begin
