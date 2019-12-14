@@ -75,7 +75,7 @@ page 50110 "CSD Seminar Registration"
             part(SeminarRegistrationLines; "CSD Seminar Reg. Subpage")
             {
                 Caption = 'Lines';
-                SubPageLink = "Document No." = field ("No.");
+                SubPageLink = "Document No." = field("No.");
             }
             group("Seminar Room")
             {
@@ -132,13 +132,13 @@ page 50110 "CSD Seminar Registration"
         {
             part("Seminar Details FactBox"; "CSD Seminar Details FactBox")
             {
-                SubPageLink = "No." = field ("Seminar No.");
+                SubPageLink = "No." = field("Seminar No.");
                 ApplicationArea = All;
             }
             part("Customer Details FactBox"; "Customer Details FactBox")
             {
                 Provider = SeminarRegistrationLines;
-                SubPageLink = "No." = field ("Bill-to Customer No.");
+                SubPageLink = "No." = field("Bill-to Customer No.");
                 ApplicationArea = All;
             }
 
@@ -157,36 +157,37 @@ page 50110 "CSD Seminar Registration"
     {
         area(navigation)
         {
-            group("&Seminar Registration")
+            group("Seminar Registration")
             {
                 Caption = '&Seminar Registration';
-                action("Co&mments")
+                action("Comments")
                 {
                     Caption = 'Co&mments';
                     Image = Comment;
                     RunObject = Page 50106;
-                    RunPageLink = "No." = Field ("No.");
-                    RunPageView = where ("Table Name" = const ("Seminar Registration"));
+                    RunPageLink = "No." = Field("No.");
+                    RunPageView = where("Table Name" = const("Seminar Registration"));
                     ApplicationArea = All;
                 }
-                action("&Charges")
+                action("Charges")
                 {
                     Caption = '&Charges';
                     Image = Costs;
                     RunObject = Page 50124;
-                    RunPageLink = "Document No." = Field ("No.");
+                    RunPageLink = "Document No." = Field("No.");
                     ApplicationArea = All;
                 }
             }
         }
         area(Processing)
         {
-            action("&Post")
+            action("Post")
             {
                 Caption = '&Post';
                 Image = PostDocument;
                 Promoted = true;
                 PromotedIsBig = true;
+                PromotedOnly = true;
                 PromotedCategory = Process;
                 ShortcutKey = F9;
                 RunObject = codeunit "CSD Seminar-Post (Yes/No)";

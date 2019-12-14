@@ -5,8 +5,8 @@ page 50122 "CSD Seminar Registers"
     PageType = List;
     SourceTable = "CSD Seminar Register";
     Caption = 'Seminar Registers';
-    Editable = false;
     UsageCategory = Lists;
+    Editable = false;
 
     layout
     {

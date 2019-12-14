@@ -33,7 +33,7 @@
     }
   ],
   "contextSensitiveHelpUrl": "http://localhost/SD_Seminar/",
-  "showMyCode": false,
+  "showMyCode": true,
   "target": "OnPrem",
   "runtime": "4.0",
   "features": ["TranslationFile"]

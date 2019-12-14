@@ -3,8 +3,15 @@ table 50132 "CSD Seminar Ledger Entry"
     // CSD1.00 - 2018-01-01 - D. E. Veloper
     //   Chapter 7 - Lab 1 - 3
     //     - Created new table
+    //   Chapter 8 - Lab 2 - 1
+    //   Added key2
+    //   Chapter 8 - Lab 2 - 3
+    //   Added LookupPageId & DrilldownPageId properties
+
 
     Caption = 'Seminar Ledger Entry';
+    LookupPageId = "CSD Seminar Ledger Entries";
+    DrillDownPageId = "CSD Seminar Ledger Entries";
 
     fields
     {
@@ -144,8 +151,8 @@ table 50132 "CSD Seminar Ledger Entry"
         }
         field(24; "Journal Batch Name"; Code[10])
         {
-            Caption = 'Journal Batch Name';
             DataClassification = AccountData;
+            Caption = 'Journal Batch Name';
         }
         field(25; "Source Code"; Code[10])
         {
@@ -171,12 +178,11 @@ table 50132 "CSD Seminar Ledger Entry"
             TableRelation = user where ("User Name" = field ("User Id"));
             ValidateTableRelation = false;
             DataClassification = AccountData;
-
             trigger OnLookup();
             var
                 UserMgt: Codeunit "User Management";
             begin
-                UserMgt.DisplayUserInformation("User ID");
+                usermgt.DisplayUserInformation("User Id");
             end;
         }
     }
@@ -186,6 +192,13 @@ table 50132 "CSD Seminar Ledger Entry"
         key(Key1; "Entry No.")
         {
         }
+        key(key2; "Document No.", "Posting Date")
+        {
+        }
+    }
+
+    fieldgroups
+    {
     }
 }
 

@@ -10,7 +10,7 @@ table 50101 "CSD Seminar"
         {
             Caption = 'No.';
             DataClassification = AccountData;
-            
+
 
             trigger OnValidate();
             begin
@@ -69,7 +69,7 @@ table 50101 "CSD Seminar"
             Caption = 'Comment';
             Editable = false;
             FieldClass = FlowField;
-            CalcFormula = exist ("CSD Seminar Comment Line" where ("Table Name" = filter ("Seminar"), "No." = Field ("No.")));
+            CalcFormula = exist ("CSD Seminar Comment Line" where("Table Name" = filter("Seminar"), "No." = Field("No.")));
         }
         field(100; "Seminar Price"; Decimal)
         {

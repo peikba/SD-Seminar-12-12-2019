@@ -10,6 +10,8 @@ codeunit 50100 "CSD Seminar-Post"
     begin
         ClearAll();
         SeminarRegHeader := Rec;
+        OnBeforePostSeminarRegistration(SeminarRegHeader);
+
         with SeminarRegHeader do begin
             TestField("Posting Date");
             TestField("Document Date");
@@ -33,6 +35,7 @@ codeunit 50100 "CSD Seminar-Post"
             SeminarRegLine.LockTable();
             SourceCodeSetup.Get();
             SourceCode := SourceCodeSetup."CSD Seminar";
+            SourceCodeSetup.TestField("CSD Seminar");
             PstdSeminarRegHeader.Init();
             PstdSeminarRegHeader.TransferFields(SeminarRegHeader);
             PstdSeminarRegHeader."No." := "Posting No.";
@@ -244,5 +247,11 @@ codeunit 50100 "CSD Seminar-Post"
                 PostSeminarJnlLine(3); // Charge 
             until SeminarCharge.Next() = 0;
     end;
+
+    [IntegrationEvent(true, false)]
+    local procedure OnBeforePostSeminarRegistration(inSeminarRegHeader: Record "CSD Seminar Reg. Header")
+    begin
+    end;
+
 }
 
