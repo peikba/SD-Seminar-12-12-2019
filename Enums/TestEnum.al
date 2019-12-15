@@ -1,4 +1,4 @@
-enum 50140 MyEnum01
+enum 50136 MyEnum01
 {
     Extensible = true;
 
@@ -10,7 +10,7 @@ enum 50140 MyEnum01
     }
 }
 
-table 50140 MyTable01
+table 50135 MyTable03
 {
     DataClassification = ToBeClassified;
 
@@ -42,7 +42,7 @@ table 50140 MyTable01
     }
 }
 
-table 50141 MyTable02
+table 50136 MyTable04
 {
     DataClassification = ToBeClassified;
 
@@ -58,27 +58,14 @@ table 50141 MyTable02
             Caption = 'Total Amount';
             Editable = false;
             FieldClass = FlowField;
-            CalcFormula = sum (MyTable01.Amount where(MyEnum = const(Value00)));
+            CalcFormula = sum (MyTable03.Amount where(MyEnum = const(Value00)));
         }
         field(4; "TotalAmount2"; Decimal)
         {
             Caption = 'Total Amount';
             Editable = false;
             FieldClass = FlowField;
-            CalcFormula = sum (MyTable01.Amount where(MyEnum = filter(Value00)));
-            /* ERROR:
-            "resource": "/c:/Users/Jmarin/Documents/AL/ALProject39/.vscode/Test01.al",
-            "owner": "_generated_diagnostic_collection_name_#1",
-            "code": "AL0186",
-            "severity": 8,
-            "message": "Reference 'MyEnum' in application object 'MyTable01' does not exist",
-            "source": "AL",
-            "startLineNumber": 83,
-            "startColumn": 73,
-            "endLineNumber": 83,
-            "endColumn": 80
-
-            */
+            CalcFormula = sum (MyTable03.Amount where(MyEnum = filter(Value00)));
         }
 
     }
